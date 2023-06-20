@@ -2,10 +2,21 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [value, setValue] = useState(0)
+  const [isSubmit, setIsSubmit] = useState(false)
 
-  return (
-    <>
+  const handle = (e) => {
+    setValue(e.target.innerHTML)
+    
+  }
+const handleSubmit = (e) => {
+    setIsSubmit(!isSubmit)
+  }
+  const showInformation = ( )=> {
+    if(!isSubmit) {
+
+      return (
+
       <div className='container'>
         <div className='mobile'>
 
@@ -22,22 +33,59 @@ function App() {
             </div>
 
             <div className='five-ball'>
-              <div className='circle'><a className='number'>1</a></div>
-              <div className='circle'><a className='number'>2</a></div>
-              <div className='circle'><a className='number'>3</a></div>
-              <div className='circle'><a className='number'>4</a></div>
-              <div className='circle'><a className='number'>5</a></div>
+              <div onClick={handle} className='circle'>1</div>
+              <div onClick= {handle} className='circle'>2</div>
+              <div onClick= {handle} className='circle'>3</div>
+              <div onClick= {handle} className='circle'>4</div>
+              <div onClick= {handle} className='circle'>5</div>
             </div>
 
-            <div className='button'>
-              <h2>SUBMIT</h2>
-            </div>
+            <div onClick={handleSubmit} className='button'><a id='submit-text'>SUBMIT</a></div>
 
           </div>
 
         </div>
       </div>
-      
+      )
+    }
+    else {
+      return(
+        <div className='container-two'>
+        <div className='mobile-two'>
+
+          <div className='windows-two'>
+            <div className='img-thank'>
+              <img src='../images/illustration-thank-you.svg'/>
+            </div>
+
+            <div className='answer-box'>
+              <p className='answer'>You selected {value} out of 5</p>
+            </div>
+
+            <h1 className='thank-you'>Thank you!</h1>
+
+            <div className='appreciate-box'>
+              <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
+            </div>
+          
+            <div id='text'>
+              
+            </div>
+
+
+            
+
+          </div>
+
+        </div>
+      </div>
+      )
+    }
+  }
+
+  return (
+    <>
+     { showInformation() }
     </>
   )
 }
