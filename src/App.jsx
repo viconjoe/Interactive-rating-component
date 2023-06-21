@@ -4,11 +4,34 @@ import './App.css'
 function App() {
   const [value, setValue] = useState(0)
   const [isSubmit, setIsSubmit] = useState(false)
+  const [clicked, setClicked] = useState(false)
+  const [clicked2, setClicked2] = useState(false)
+  const [clicked3, setClicked3] = useState(false)
+  const [clicked4, setClicked4] = useState(false)
+  const [clicked5, setClicked5] = useState(false)
 
+const array = [ 1, 2, 3, 4, 5]
   const handle = (e) => {
     setValue(e.target.innerHTML)
-    
+    setClicked(!clicked)
   }
+  const handle2 = (e) => {
+    setValue(e.target.innerHTML)
+    setClicked2(!clicked2)
+  }
+  const handle3 = (e) => {
+    setValue(e.target.innerHTML)
+    setClicked3(!clicked3)
+  }
+  const handle4 = (e) => {
+    setValue(e.target.innerHTML)
+    setClicked4(!clicked4)
+  }
+  const handle5 = (e) => {
+    setValue(e.target.innerHTML)
+    setClicked5(!clicked5)
+  }
+
 const handleSubmit = (e) => {
     setIsSubmit(!isSubmit)
   }
@@ -33,11 +56,11 @@ const handleSubmit = (e) => {
             </div>
 
             <div className='five-ball'>
-              <div onClick={handle} className='circle'>1</div>
-              <div onClick= {handle} className='circle'>2</div>
-              <div onClick= {handle} className='circle'>3</div>
-              <div onClick= {handle} className='circle'>4</div>
-              <div onClick= {handle} className='circle'>5</div>
+              <div onClick={handle} className={ clicked ? 'activated' : 'circle'}>1</div>
+              <div onClick= {handle2} className={ clicked2 ? 'activated' : 'circle'}>2</div>
+              <div onClick= {handle3} className={ clicked3 ? 'activated' : 'circle'}>3</div>
+              <div onClick= {handle4} className={ clicked4 ? 'activated' : 'circle'}>4</div>
+              <div onClick= {handle5} className={ clicked5 ? 'activated' : 'circle'}>5</div>
             </div>
 
             <div onClick={handleSubmit} className='button'>SUBMIT</div>
