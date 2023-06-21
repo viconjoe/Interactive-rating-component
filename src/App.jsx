@@ -13,7 +13,7 @@ const handleSubmit = (e) => {
     setIsSubmit(!isSubmit)
   }
   const showInformation = ( )=> {
-    if(!isSubmit) {
+    if(!isSubmit || value === 0) {
 
       return (
 
@@ -40,7 +40,7 @@ const handleSubmit = (e) => {
               <div onClick= {handle} className='circle'>5</div>
             </div>
 
-            <div onClick={handleSubmit} className='button'><a id='submit-text'>SUBMIT</a></div>
+            <div onClick={handleSubmit} className='button'>SUBMIT</div>
 
           </div>
 
@@ -48,7 +48,7 @@ const handleSubmit = (e) => {
       </div>
       )
     }
-    else {
+    else if(isSubmit) {
       return(
         <div className='container-two'>
         <div className='mobile-two'>
